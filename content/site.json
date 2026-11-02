@@ -1,12 +1,12 @@
 {
   "meta": {
-    "title": "MARYIA MALYAVKA — Свадебный & Репортажный Фотограф",
-    "brand": "MARYIA MALYAVKA",
+    "title": "MARYIA MALAVKA — Свадебный & Репортажный Фотограф",
+    "brand": "MARYIA MALAVKA",
     "brand_sub": "PHOTOGRAPHY ©2026"
   },
   "hero": {
-    "badge": "Доступны даты для бронирования",
     "show_badge": true,
+    "badge": "Доступны даты для бронирования",
     "first_name": "Мария",
     "last_name": "Малявка",
     "subtitle": "Классический свадебный & репортажный фотограф",
@@ -43,46 +43,46 @@
   },
   "gallery": [
     {
-      "title": "Классическая свадьба",
-      "category": "wedding",
-      "desc": "Свадебный портрет пары",
       "image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80",
-      "photos": []
+      "title": "Классическая свадьба",
+      "desc": "Свадебный портрет пары",
+      "photos": [],
+      "category": "wedding"
     },
     {
-      "title": "Таинство Крещения",
-      "category": "baptism",
-      "desc": "Душевный репортаж из храма",
       "image": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80",
-      "photos": []
+      "title": "Таинство Крещения",
+      "desc": "Душевный репортаж из храма",
+      "photos": [],
+      "category": "baptism"
     },
     {
-      "title": "Индивидуальный портрет",
-      "category": "portrait",
-      "desc": "Естественный свет",
       "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80",
-      "photos": []
+      "title": "Индивидуальный портрет",
+      "desc": "Естественный свет",
+      "photos": [],
+      "category": "portrait"
     },
     {
-      "title": "Свадебная прогулка",
-      "category": "wedding",
-      "desc": "Эмоции в кадре",
       "image": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1000&q=80",
-      "photos": []
+      "title": "Свадебная прогулка",
+      "desc": "Эмоции в кадре",
+      "photos": [],
+      "category": "wedding"
     },
     {
-      "title": "Эстетика Reels",
-      "category": "reels",
-      "desc": "Короткие видео-моменты",
       "image": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80",
-      "photos": []
+      "title": "Эстетика Reels",
+      "desc": "Короткие видео-моменты",
+      "photos": [],
+      "category": "reels"
     },
     {
-      "title": "Семейный портрет",
-      "category": "baptism",
-      "desc": "Крещение и семья",
       "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1000&q=80",
-      "photos": []
+      "title": "Семейный портрет",
+      "desc": "Крещение и семья",
+      "photos": [],
+      "category": "baptism"
     }
   ],
   "about": {
@@ -141,6 +141,6 @@
     "whatsapp_phone": "",
     "viber_phone": "",
     "message_template": "Здравствуйте! Меня зовут {name}. Хочу заказать съёмку: {type}.\nПожелания: {wishes}",
-    "footer_text": "© 2026 MARYIA MALYAVKA. Все права защищены."
+    "footer_text": "© 2026 MARYIA MALAVKA. Все права защищены."
   }
 }
