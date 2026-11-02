@@ -36,7 +36,7 @@
   ],
   "instagram": {
     "username": "maryia.pro.photo",
-    "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80",
+    "avatar": "/images/uploads/photo_2026-11-02_23-38-36.jpg",
     "bio": "Классический свадебный и репортажный фотограф • Свадьбы | Крещения | Портреты | Reels • Речица",
     "button": "Перейти в Instagram",
     "more_button": "Больше фото в Instagram"
@@ -78,7 +78,7 @@
       "category": "reels"
     },
     {
-      "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1000&q=80",
+      "image": "/images/uploads/photo_2026-11-02_23-38-36.jpg",
       "title": "Семейный портрет",
       "desc": "Крещение и семья",
       "photos": [],
@@ -86,7 +86,7 @@
     }
   ],
   "about": {
-    "photo": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1000&q=80",
+    "photo": "/images/uploads/photo_2026-11-02_23-38-36.jpg",
     "title": "Мария Малявка",
     "text": "Я классический свадебный и репортажный фотограф. Сохраняю самые важные и искренние моменты вашей жизни: от нежных свадебных церемоний и душевных таинств крещения до стильных индивидуальных портретов.\n\nМой главный ориентир — естественность, эмоции и чистота кадра, которые останутся актуальными спустя десятилетия.",
     "facts": [
