@@ -215,7 +215,13 @@
             return i;
         }
         // Image URLs from CMS are relative to site root; leave absolute URLs as is
-        const img = (u) => u || '';
+        const img = (u) => {
+            u = String(u || '').trim();
+            if (!u || /^(https?:|data:|blob:|\/\/)/i.test(u)) return u;
+            // Paths saved by the CMS look like /images/uploads/x.jpg; make them relative to the site folder
+            // so they also work on GitHub project pages (user.github.io/repo/)
+            return u.replace(/^\/+/, '').split('/').map(encodeURIComponent).join('/');
+        };
 
         async function init() {
             try {
