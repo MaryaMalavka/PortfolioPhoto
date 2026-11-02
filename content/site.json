@@ -19,16 +19,26 @@
       "image": "/images/uploads/photo_2_2026-11-02_23-57-34.jpg",
       "label": "Свадьба",
       "title": "Wedding Elegance",
-      "photos": []
+      "photos": [
+        "/images/uploads/photo_10_2026-11-02_23-57-34.jpg",
+        "/images/uploads/photo_12_2026-11-02_23-57-34.jpg",
+        "/images/uploads/photo_9_2026-11-02_23-57-34.jpg",
+        "/images/uploads/photo_19_2026-11-02_23-57-34.jpg",
+        "/images/uploads/photo_20_2026-11-02_23-57-34.jpg",
+        "/images/uploads/photo_18_2026-11-02_23-57-34.jpg",
+        "/images/uploads/photo_14_2026-11-02_23-57-34.jpg",
+        "/images/uploads/photo_16_2026-11-02_23-57-34.jpg",
+        "/images/uploads/photo_13_2026-11-02_23-57-34.jpg"
+      ]
     },
     {
-      "image": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80",
+      "image": "/images/uploads/photo_8_2026-11-02_23-57-34.jpg",
       "label": "Таинство",
       "title": "Крещение",
       "photos": []
     },
     {
-      "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80",
+      "image": "/images/uploads/photo_6_2026-11-02_23-57-34.jpg",
       "label": "Портрет",
       "title": "Personal Story",
       "photos": []
@@ -43,44 +53,44 @@
   },
   "gallery": [
     {
-      "image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80",
+      "image": "/images/uploads/photo_2_2026-11-02_23-57-34.jpg",
       "title": "Классическая свадьба",
       "desc": "Свадебный портрет пары",
       "photos": [],
       "category": "wedding"
     },
     {
-      "image": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80",
+      "image": "/images/uploads/photo_8_2026-11-02_23-57-34.jpg",
       "title": "Таинство Крещения",
       "desc": "Душевный репортаж из храма",
       "photos": [],
       "category": "baptism"
     },
     {
-      "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80",
+      "image": "/images/uploads/photo_6_2026-11-02_23-57-34.jpg",
       "title": "Индивидуальный портрет",
       "desc": "Естественный свет",
       "photos": [],
       "category": "portrait"
     },
     {
-      "image": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1000&q=80",
+      "image": "/images/uploads/photo_1_2026-11-02_23-57-34.jpg",
       "title": "Свадебная прогулка",
       "desc": "Эмоции в кадре",
       "photos": [],
       "category": "wedding"
     },
     {
-      "image": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80",
-      "title": "Эстетика Reels",
-      "desc": "Короткие видео-моменты",
+      "image": "/images/uploads/photo_5_2026-11-02_23-57-34.jpg",
+      "title": "Семейная фотосессия",
+      "desc": "Моменты с семьей",
       "photos": [],
       "category": "reels"
     },
     {
-      "image": "/images/uploads/photo_2026-11-02_23-38-36.jpg",
-      "title": "Семейный портрет",
-      "desc": "Крещение и семья",
+      "image": "/images/uploads/photo_11_2026-11-02_23-57-34.jpg",
+      "title": "Репортажная съемка",
+      "desc": "Запечатление каждого момента",
       "photos": [],
       "category": "baptism"
     }
