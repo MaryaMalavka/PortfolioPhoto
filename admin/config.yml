@@ -2,7 +2,7 @@
 # например: maryia/portfolio
 backend:
   name: github
-  repo: YOUR_USERNAME/YOUR_REPO
+  repo: MaryaMalavka/PortfolioPhoto
   branch: main
 
 # Фото, загруженные через админку, попадут в images/uploads
