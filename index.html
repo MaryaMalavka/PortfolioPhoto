@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Загрузка…</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Plus+Jakarta+Sans:wght@300;400;500;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: {
+                fontFamily: { syne: ['Syne','sans-serif'], cinzel: ['Cinzel','serif'], sans: ['Plus Jakarta Sans','sans-serif'] },
+                colors: { studio: { 50:'#f8f8f8', 100:'#e6e6e6', 900:'#0d0d0d', 950:'#050505' } }
+            } }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0d0d0d; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        .text-outline { -webkit-text-stroke: 1px rgba(255,255,255,0.25); color: transparent; }
+        .text-outline:hover { -webkit-text-stroke: 1px rgba(255,255,255,0.9); color: transparent; }
+        .editorial-border { border-color: rgba(255,255,255,0.12); }
+        .bg-grain { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E"); }
+    </style>
+</head>
+<body class="bg-studio-950 text-studio-50 font-sans selection:bg-white selection:text-black bg-grain antialiased min-h-screen flex flex-col justify-between overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-studio-950/80 backdrop-blur-md border-b editorial-border">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center gap-4">
+            <a href="#" class="font-syne text-xl tracking-tighter font-extrabold uppercase hover:opacity-70 transition">
+                <span data-t="meta.brand"></span><span class="text-xs font-sans tracking-widest text-neutral-500 block font-normal" data-t="meta.brand_sub"></span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-10 text-xs tracking-widest uppercase font-medium text-neutral-400">
+                <a href="#gallery" class="hover:text-white transition">Галерея</a>
+                <a href="#about" class="hover:text-white transition">Обо мне</a>
+                <a href="#services" class="hover:text-white transition">Услуги</a>
+                <a data-insta target="_blank" rel="noopener" class="hover:text-white transition flex items-center gap-1.5"><i data-lucide="instagram" class="w-3.5 h-3.5"></i> <span data-insta-handle></span></a>
+            </nav>
+            <button onclick="toggleContactModal()" class="inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-studio-950 bg-white rounded-full transition hover:bg-neutral-200">
+                <span data-t="hero.book_button"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="pt-36 pb-20 px-6 max-w-7xl mx-auto w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+            <div class="lg:col-span-8">
+                <div id="hero-badge" class="inline-flex items-center gap-2 px-3 py-1 rounded-full border editorial-border text-xs font-mono text-emerald-400 mb-4 bg-emerald-500/10">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span data-t="hero.badge"></span>
+                </div>
+                <h1 class="font-syne text-4xl sm:text-7xl lg:text-8xl font-extrabold uppercase leading-[0.95] tracking-tight">
+                    <span data-t="hero.first_name"></span> <br>
+                    <span class="text-outline italic font-cinzel font-normal" data-t="hero.last_name"></span>
+                </h1>
+                <p class="mt-4 font-syne text-lg sm:text-2xl text-neutral-300 uppercase tracking-wide" data-t="hero.subtitle"></p>
+            </div>
+            <div class="lg:col-span-4 border-l editorial-border pl-6 py-2">
+                <p class="text-neutral-400 text-sm font-light leading-relaxed mb-6" data-t="hero.description"></p>
+                <div class="flex items-center gap-4 text-xs font-mono text-neutral-400">
+                    <i data-lucide="map-pin" class="w-4 h-4 text-neutral-300"></i>
+                    <span data-t="hero.location"></span>
+                </div>
+            </div>
+        </div>
+        <div id="featured" class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4"></div>
+    </section>
+
+    <!-- Instagram -->
+    <section class="py-12 border-y editorial-border bg-studio-900/40 backdrop-blur">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 shrink-0">
+                        <img id="insta-avatar" alt="" class="w-full h-full rounded-full object-cover border-2 border-black">
+                    </div>
+                    <div>
+                        <h4 class="font-syne font-bold text-lg flex items-center gap-2">
+                            <span data-insta-handle></span>
+                            <i data-lucide="badge-check" class="w-4 h-4 text-blue-400"></i>
+                        </h4>
+                        <p class="text-xs text-neutral-400 max-w-xl" data-t="instagram.bio"></p>
+                    </div>
+                </div>
+                <a data-insta target="_blank" rel="noopener" class="bg-white text-black text-xs font-bold px-6 py-3 rounded-full uppercase tracking-wider hover:bg-neutral-200 transition shrink-0 flex items-center gap-2">
+                    <i data-lucide="instagram" class="w-4 h-4"></i> <span data-t="instagram.button"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-24 max-w-7xl mx-auto px-6 w-full">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+                <span class="text-xs font-mono uppercase tracking-[0.3em] text-neutral-400">// ГАЛЕРЕЯ РАБОТ</span>
+                <h2 class="font-syne text-4xl sm:text-5xl font-extrabold uppercase mt-2">Портфолио</h2>
+            </div>
+            <div id="filter-buttons" class="flex flex-wrap gap-2 text-xs font-mono">
+                <button data-cat="all" class="filter-btn px-4 py-2 rounded-full border border-white bg-white text-black transition">ВСЕ</button>
+                <button data-cat="wedding" class="filter-btn px-4 py-2 rounded-full border editorial-border hover:border-neutral-400 transition">СВАДЬБЫ</button>
+                <button data-cat="baptism" class="filter-btn px-4 py-2 rounded-full border editorial-border hover:border-neutral-400 transition">КРЕЩЕНИЯ</button>
+                <button data-cat="portrait" class="filter-btn px-4 py-2 rounded-full border editorial-border hover:border-neutral-400 transition">ПОРТРЕТЫ</button>
+                <button data-cat="reels" class="filter-btn px-4 py-2 rounded-full border editorial-border hover:border-neutral-400 transition">REELS & РЕПОРТАЖ</button>
+            </div>
+        </div>
+        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 border-t editorial-border bg-studio-900/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5">
+                    <div class="aspect-[4/5] rounded-xl overflow-hidden border editorial-border">
+                        <img id="about-photo" alt="" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="lg:col-span-7">
+                    <span class="text-xs font-mono uppercase tracking-[0.3em] text-neutral-400">// ОБ АВТОРЕ</span>
+                    <h2 class="font-syne text-3xl sm:text-4xl font-bold uppercase mt-2 mb-6" data-t="about.title"></h2>
+                    <div id="about-text" class="space-y-4 text-neutral-300 text-sm leading-relaxed"></div>
+                    <div id="about-facts" class="grid grid-cols-2 sm:grid-cols-3 gap-6 mt-10 pt-8 border-t editorial-border"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 max-w-7xl mx-auto px-6 w-full">
+        <span class="text-xs font-mono uppercase tracking-[0.3em] text-neutral-400">// СЪЕМКИ И ПРАЙС</span>
+        <h2 class="font-syne text-4xl font-extrabold uppercase mt-2 mb-12">Услуги фотографа</h2>
+        <div id="services-list" class="divide-y editorial-border"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t editorial-border py-12 bg-studio-950">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-neutral-500">
+            <div data-t="contacts.footer_text"></div>
+            <div class="flex items-center space-x-6">
+                <a data-insta target="_blank" rel="noopener" class="hover:text-white transition">INSTAGRAM</a>
+                <a id="tg-link" target="_blank" rel="noopener" class="hover:text-white transition hidden">TELEGRAM</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox / carousel -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-lg hidden flex-col items-center justify-center" onclick="if(event.target===this)closeLightbox()">
+        <button onclick="closeLightbox()" aria-label="Закрыть" class="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 text-neutral-300 hover:text-white p-2"><i data-lucide="x" class="w-8 h-8"></i></button>
+        <div id="lb-counter" class="absolute top-6 left-6 text-xs font-mono text-neutral-400 z-10"></div>
+        <div id="lb-viewport" class="relative w-full max-w-6xl overflow-hidden select-none" style="touch-action: pan-y;">
+            <div id="lb-track" class="flex transition-transform duration-300 ease-out"></div>
+        </div>
+        <button id="lb-prev" onclick="lbGo(-1)" aria-label="Назад" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-black/50 border editorial-border flex items-center justify-center text-white hover:bg-white hover:text-black transition"><i data-lucide="chevron-left" class="w-5 h-5"></i></button>
+        <button id="lb-next" onclick="lbGo(1)" aria-label="Вперёд" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-black/50 border editorial-border flex items-center justify-center text-white hover:bg-white hover:text-black transition"><i data-lucide="chevron-right" class="w-5 h-5"></i></button>
+        <div class="mt-4 text-center px-6">
+            <h3 id="lightbox-title" class="font-syne text-xl font-bold uppercase tracking-wider"></h3>
+            <p id="lightbox-desc" class="text-xs font-mono text-neutral-400 mt-1"></p>
+            <div id="lb-dots" class="flex justify-center gap-1.5 mt-4"></div>
+        </div>
+    </div>
+
+    <!-- Contact modal -->
+    <div id="contact-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4" onclick="if(event.target===this)toggleContactModal()">
+        <div class="bg-studio-900 border editorial-border rounded-2xl max-w-lg w-full p-6 sm:p-8 relative max-h-full overflow-y-auto">
+            <button onclick="toggleContactModal()" aria-label="Закрыть" class="absolute top-5 right-5 text-neutral-400 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+            <h3 class="font-syne text-2xl font-bold uppercase">Обсудить проект</h3>
+            <p class="text-xs text-neutral-400 mt-1 mb-6">Выберите удобный мессенджер — откроется чат со мной и готовым сообщением.</p>
+            <form id="booking-form" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                <div>
+                    <label for="c-name" class="block text-xs font-mono uppercase text-neutral-400 mb-1">Ваше имя</label>
+                    <input id="c-name" type="text" required autocomplete="given-name" placeholder="Анна" class="w-full bg-studio-950 border editorial-border rounded-lg p-3 text-base sm:text-sm focus:outline-none focus:border-white transition">
+                </div>
+                <div>
+                    <span class="block text-xs font-mono uppercase text-neutral-400 mb-2">Где вам удобнее общаться</span>
+                    <div id="method-buttons" class="grid grid-cols-2 gap-2"></div>
+                </div>
+                <div>
+                    <label for="service-input" class="block text-xs font-mono uppercase text-neutral-400 mb-1">Тип съемки</label>
+                    <select id="service-input" class="w-full bg-studio-950 border editorial-border rounded-lg p-3 text-base sm:text-sm focus:outline-none focus:border-white transition"></select>
+                </div>
+                <div>
+                    <label for="c-wishes" class="block text-xs font-mono uppercase text-neutral-400 mb-1">Пожелания</label>
+                    <textarea id="c-wishes" rows="3" placeholder="Дата, локация, идеи — всё, что важно" class="w-full bg-studio-950 border editorial-border rounded-lg p-3 text-base sm:text-sm focus:outline-none focus:border-white transition"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-white text-black font-syne font-bold uppercase py-3.5 rounded-lg text-xs hover:bg-neutral-200 transition">Связаться со мной</button>
+                <p id="form-note" class="hidden text-xs text-neutral-400 text-center leading-relaxed"></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let SITE = null;
+        const CAT_LABELS = { wedding: 'свадьба', baptism: 'крещение', portrait: 'портрет', reels: 'reels' };
+
+        const get = (obj, path) => path.split('.').reduce((o, k) => (o == null ? o : o[k]), obj);
+        // Safe element builder: all text goes through textContent
+        function el(tag, cls, text) {
+            const e = document.createElement(tag);
+            if (cls) e.className = cls;
+            if (text != null) e.textContent = text;
+            return e;
+        }
+        function icon(name, cls) {
+            const i = document.createElement('i');
+            i.setAttribute('data-lucide', name);
+            i.className = cls;
+            return i;
+        }
+        // Image URLs from CMS are relative to site root; leave absolute URLs as is
+        const img = (u) => u || '';
+
+        async function init() {
+            try {
+                const res = await fetch('content/site.json?v=' + Date.now());
+                SITE = await res.json();
+            } catch (e) {
+                document.body.prepend(el('p', 'p-6 text-rose-400', 'Не удалось загрузить content/site.json. Откройте сайт через GitHub Pages или локальный сервер.'));
+                return;
+            }
+            document.title = SITE.meta.title;
+            document.querySelectorAll('[data-t]').forEach(n => { n.textContent = get(SITE, n.dataset.t) ?? ''; });
+
+            const ig = SITE.instagram;
+            const igUrl = 'https://www.instagram.com/' + ig.username;
+            document.querySelectorAll('[data-insta]').forEach(a => a.href = igUrl);
+            document.querySelectorAll('[data-insta-handle]').forEach(n => n.textContent = '@' + ig.username);
+            document.getElementById('insta-avatar').src = img(ig.avatar);
+            document.getElementById('hero-badge').style.display = SITE.hero.show_badge === false ? 'none' : '';
+
+            const tg = (SITE.contacts.telegram_username || '').replace('@', '').trim();
+            if (tg) { const a = document.getElementById('tg-link'); a.href = 'https://t.me/' + tg; a.classList.remove('hidden'); }
+
+            renderFeatured(); renderGallery('all'); renderAbout(); renderServices(); renderContact();
+            lucide.createIcons();
+        }
+
+        function card(item, big) {
+            const wrap = el('div', 'relative group h-96 overflow-hidden rounded-lg cursor-pointer border editorial-border');
+            wrap.onclick = () => openLightbox(item);
+            const im = el('img', 'w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0');
+            im.src = img(item.image); im.alt = item.title; im.loading = 'lazy';
+            wrap.append(im, el('div', 'absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition'));
+            const foot = el('div', 'absolute bottom-6 left-6 right-6 flex justify-between items-end');
+            const txt = el('div');
+            txt.append(el('span', 'block text-[10px] font-mono text-neutral-400 uppercase tracking-wider', big ? item.label : (CAT_LABELS[item.category] || item.category)),
+                       el('h3', 'font-syne ' + (big ? 'text-xl' : 'text-lg') + ' font-bold', item.title));
+            foot.append(txt, icon(big ? 'arrow-up-right' : 'maximize-2', 'w-4 h-4 text-neutral-300 opacity-70 group-hover:opacity-100 transition'));
+            wrap.append(foot);
+            return wrap;
+        }
+
+        function renderFeatured() {
+            const box = document.getElementById('featured'); box.replaceChildren();
+            (SITE.featured || []).forEach(f => box.append(card(f, true)));
+        }
+        function renderGallery(cat) {
+            const grid = document.getElementById('gallery-grid'); grid.replaceChildren();
+            (SITE.gallery || []).filter(i => cat === 'all' || i.category === cat).forEach(i => grid.append(card(i, false)));
+            lucide.createIcons();
+        }
+        function renderAbout() {
+            const a = SITE.about;
+            document.getElementById('about-photo').src = img(a.photo);
+            const t = document.getElementById('about-text'); t.replaceChildren();
+            (a.text || '').split(/\n\s*\n/).filter(Boolean).forEach(p => t.append(el('p', null, p.trim())));
+            const f = document.getElementById('about-facts'); f.replaceChildren();
+            (a.facts || []).forEach(x => {
+                const d = el('div');
+                d.append(el('span', 'text-neutral-500 text-xs font-mono block uppercase', x.label), el('span', 'font-syne text-lg font-bold', x.value));
+                f.append(d);
+            });
+        }
+        function renderServices() {
+            const list = document.getElementById('services-list'); list.replaceChildren();
+            (SITE.services || []).forEach((s, idx) => {
+                const row = el('div', 'py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-center group cursor-pointer hover:bg-white/5 px-4 transition rounded-lg');
+                row.onclick = () => toggleContactModal(s.title);
+                row.append(el('div', 'md:col-span-1 text-xs font-mono text-neutral-500', String(idx + 1).padStart(2, '0')));
+                const c1 = el('div', 'md:col-span-5');
+                c1.append(el('h3', 'font-syne text-xl sm:text-2xl font-bold group-hover:translate-x-2 transition', s.title), el('p', 'text-xs text-neutral-400 mt-1', s.description));
+                const c2 = el('div', 'md:col-span-4 text-xs font-mono text-neutral-400');
+                (s.bullets || []).forEach((b, i) => { if (i) c2.append(document.createElement('br')); c2.append('• ' + b); });
+                const c3 = el('div', 'md:col-span-2 md:text-right');
+                c3.append(el('span', 'font-syne text-sm font-bold text-neutral-300', s.price));
+                row.append(c1, c2, c3); list.append(row);
+            });
+        }
+
+        document.getElementById('filter-buttons').addEventListener('click', e => {
+            const b = e.target.closest('.filter-btn'); if (!b) return;
+            document.querySelectorAll('.filter-btn').forEach(x => {
+                x.classList.remove('bg-white', 'text-black', 'border-white');
+                x.classList.add('editorial-border');
+            });
+            b.classList.add('bg-white', 'text-black', 'border-white');
+            renderGallery(b.dataset.cat);
+        });
+
+        // ---------- Carousel ----------
+        let lbSlides = 0, lbIndex = 0;
+        function openLightbox(item) {
+            const photos = [item.image, ...((item.photos || []).filter(Boolean))].slice(0, 10);
+            const track = document.getElementById('lb-track'); track.replaceChildren();
+            photos.forEach((u, i) => {
+                const s = el('div', 'shrink-0 w-full flex items-center justify-center px-4 sm:px-16');
+                const im = el('img', 'max-h-[70vh] w-auto max-w-full object-contain rounded-sm shadow-2xl');
+                im.src = img(u); im.alt = item.title + ' ' + (i + 1); im.draggable = false;
+                s.append(im); track.append(s);
+            });
+            // last slide: link to Instagram
+            const cta = el('div', 'shrink-0 w-full flex items-center justify-center px-4 sm:px-16');
+            const box = el('div', 'h-[50vh] flex flex-col items-center justify-center text-center gap-5');
+            const ig = document.createElement('a');
+            ig.href = 'https://www.instagram.com/' + SITE.instagram.username; ig.target = '_blank'; ig.rel = 'noopener';
+            ig.className = 'bg-white text-black text-xs font-bold px-8 py-4 rounded-full uppercase tracking-wider hover:bg-neutral-200 transition flex items-center gap-2';
+            ig.append(icon('instagram', 'w-4 h-4'), el('span', null, SITE.instagram.more_button || 'Больше фото в Instagram'));
+            box.append(el('p', 'font-syne text-2xl sm:text-3xl font-bold uppercase', '@' + SITE.instagram.username), ig);
+            cta.append(box); track.append(cta);
+
+            lbSlides = photos.length + 1; lbIndex = 0;
+            const dots = document.getElementById('lb-dots'); dots.replaceChildren();
+            for (let i = 0; i < lbSlides; i++) {
+                const d = el('button', 'w-1.5 h-1.5 rounded-full bg-neutral-600 transition'); d.setAttribute('aria-label', 'Слайд ' + (i + 1));
+                d.onclick = () => lbShow(i); dots.append(d);
+            }
+            document.getElementById('lightbox-title').textContent = item.title;
+            document.getElementById('lightbox-desc').textContent = item.desc || item.label || '';
+            const m = document.getElementById('lightbox-modal'); m.classList.remove('hidden'); m.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons(); lbShow(0);
+        }
+        function lbShow(i) {
+            lbIndex = Math.max(0, Math.min(lbSlides - 1, i));
+            document.getElementById('lb-track').style.transform = 'translateX(' + (-100 * lbIndex) + '%)';
+            document.getElementById('lb-counter').textContent = (lbIndex + 1) + ' / ' + lbSlides;
+            document.querySelectorAll('#lb-dots button').forEach((d, k) => { d.classList.toggle('bg-white', k === lbIndex); d.classList.toggle('bg-neutral-600', k !== lbIndex); });
+            document.getElementById('lb-prev').style.visibility = lbIndex === 0 ? 'hidden' : 'visible';
+            document.getElementById('lb-next').style.visibility = lbIndex === lbSlides - 1 ? 'hidden' : 'visible';
+        }
+        function lbGo(d) { lbShow(lbIndex + d); }
+        function closeLightbox() {
+            const m = document.getElementById('lightbox-modal'); m.classList.add('hidden'); m.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+        (function () { // swipe
+            const vp = document.getElementById('lb-viewport'); let x0 = null;
+            vp.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+            vp.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) lbGo(dx < 0 ? 1 : -1); x0 = null; });
+        })();
+
+        function toggleContactModal(preset) {
+            const m = document.getElementById('contact-modal');
+            const sel = document.getElementById('service-input');
+            if (typeof preset === 'string' && preset && [...sel.options].some(o => o.value === preset)) sel.value = preset;
+            document.getElementById('form-note').classList.add('hidden');
+            m.classList.toggle('hidden'); m.classList.toggle('flex');
+        }
+        document.addEventListener('keydown', e => {
+            const lb = !document.getElementById('lightbox-modal').classList.contains('hidden');
+            if (e.key === 'Escape') { closeLightbox(); const m = document.getElementById('contact-modal'); if (!m.classList.contains('hidden')) toggleContactModal(); }
+            if (lb && e.key === 'ArrowRight') lbGo(1);
+            if (lb && e.key === 'ArrowLeft') lbGo(-1);
+        });
+
+        // ---------- Contact popup ----------
+        const digits = s => String(s || '').replace(/\D/g, '');
+        function methods() {
+            const c = SITE.contacts || {};
+            return {
+                telegram:  { label: 'Telegram',  icon: 'send',           target: String(c.telegram_username || '').replace('@', '').trim(), url: (t, m) => 'https://t.me/' + t + '?text=' + encodeURIComponent(m), copy: false },
+                whatsapp:  { label: 'WhatsApp',  icon: 'message-circle', target: digits(c.whatsapp_phone), url: (t, m) => 'https://wa.me/' + t + '?text=' + encodeURIComponent(m), copy: false },
+                viber:     { label: 'Viber',     icon: 'phone',          target: digits(c.viber_phone),    url: (t) => 'viber://chat?number=%2B' + t, copy: true, scheme: true },
+                instagram: { label: 'Instagram', icon: 'instagram',      target: String(SITE.instagram.username || '').replace('@', '').trim(), url: (t) => 'https://ig.me/m/' + t, copy: true }
+            };
+        }
+        let selectedMethod = null;
+        function selectMethod(key) {
+            selectedMethod = key;
+            document.querySelectorAll('#method-buttons button').forEach(b => {
+                const on = b.dataset.key === key;
+                b.classList.toggle('bg-white', on); b.classList.toggle('text-black', on);
+                b.classList.toggle('editorial-border', !on); b.classList.toggle('border-white', on);
+                b.setAttribute('aria-pressed', on);
+            });
+        }
+        function renderContact() {
+            const sel = document.getElementById('service-input'); sel.replaceChildren();
+            [...(SITE.services || []).map(s => s.title), 'Другое'].forEach(t => { const o = el('option', null, t); o.value = t; sel.append(o); });
+            const box = document.getElementById('method-buttons'); box.replaceChildren();
+            const m = methods(); const avail = Object.keys(m).filter(k => m[k].target);
+            avail.forEach(k => {
+                const b = el('button', 'flex items-center justify-center gap-2 px-3 py-3 rounded-lg border editorial-border text-xs font-mono uppercase hover:border-neutral-400 transition');
+                b.type = 'button'; b.dataset.key = k; b.onclick = () => selectMethod(k);
+                b.append(icon(m[k].icon, 'w-4 h-4'), el('span', null, m[k].label)); box.append(b);
+            });
+            if (avail.length) selectMethod(avail[0]);
+        }
+        function copyText(text) {
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).catch(() => {}); return; }
+            } catch (e) {}
+            try { const t = document.createElement('textarea'); t.value = text; t.style.position = 'fixed'; t.style.opacity = '0'; document.body.append(t); t.select(); document.execCommand('copy'); t.remove(); } catch (e) {}
+        }
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const note = document.getElementById('form-note'); note.classList.remove('hidden');
+            const m = methods()[selectedMethod];
+            if (!m || !m.target) { note.textContent = 'Способы связи пока не настроены. Напишите мне в Instagram.'; return; }
+            const tpl = (SITE.contacts && SITE.contacts.message_template) || 'Здравствуйте! Меня зовут {name}. Хочу заказать съёмку: {type}.\nПожелания: {wishes}';
+            const msg = tpl
+                .replaceAll('{name}', document.getElementById('c-name').value.trim())
+                .replaceAll('{type}', document.getElementById('service-input').value)
+                .replaceAll('{wishes}', document.getElementById('c-wishes').value.trim() || '—');
+            // clipboard first (needs the click gesture), then open the chat
+            if (m.copy) copyText(msg);
+            const url = m.url(m.target, msg);
+            if (m.scheme) window.location.href = url; else if (!window.open(url, '_blank')) window.location.href = url;
+            note.textContent = m.copy
+                ? 'Текст сообщения скопирован — вставьте его в открывшийся чат и отправьте.'
+                : 'Открываем чат — осталось нажать «Отправить».';
+        }
+
+        init();
+    </script>
+</body>
+</html>

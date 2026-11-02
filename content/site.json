@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "title": "MARYIA MALYAVKA — Свадебный & Репортажный Фотограф",
+    "brand": "MARYIA MALYAVKA",
+    "brand_sub": "PHOTOGRAPHY ©2026"
+  },
+  "hero": {
+    "badge": "Доступны даты для бронирования",
+    "show_badge": true,
+    "first_name": "Мария",
+    "last_name": "Малявка",
+    "subtitle": "Классический свадебный & репортажный фотограф",
+    "description": "Искренние эмоции, естественный свет и вневременная классика. Свадьбы, крещения, портретные съемки и Reels в Речице, Гомеле и по всей Беларуси.",
+    "location": "Речица / Беларусь",
+    "book_button": "Забронировать дату"
+  },
+  "featured": [
+    {
+      "image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+      "label": "Свадьба",
+      "title": "Wedding Elegance",
+      "photos": []
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80",
+      "label": "Таинство",
+      "title": "Крещение",
+      "photos": []
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80",
+      "label": "Портрет",
+      "title": "Personal Story",
+      "photos": []
+    }
+  ],
+  "instagram": {
+    "username": "maryia.pro.photo",
+    "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80",
+    "bio": "Классический свадебный и репортажный фотограф • Свадьбы | Крещения | Портреты | Reels • Речица",
+    "button": "Перейти в Instagram",
+    "more_button": "Больше фото в Instagram"
+  },
+  "gallery": [
+    {
+      "title": "Классическая свадьба",
+      "category": "wedding",
+      "desc": "Свадебный портрет пары",
+      "image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80",
+      "photos": []
+    },
+    {
+      "title": "Таинство Крещения",
+      "category": "baptism",
+      "desc": "Душевный репортаж из храма",
+      "image": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80",
+      "photos": []
+    },
+    {
+      "title": "Индивидуальный портрет",
+      "category": "portrait",
+      "desc": "Естественный свет",
+      "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80",
+      "photos": []
+    },
+    {
+      "title": "Свадебная прогулка",
+      "category": "wedding",
+      "desc": "Эмоции в кадре",
+      "image": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1000&q=80",
+      "photos": []
+    },
+    {
+      "title": "Эстетика Reels",
+      "category": "reels",
+      "desc": "Короткие видео-моменты",
+      "image": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80",
+      "photos": []
+    },
+    {
+      "title": "Семейный портрет",
+      "category": "baptism",
+      "desc": "Крещение и семья",
+      "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1000&q=80",
+      "photos": []
+    }
+  ],
+  "about": {
+    "photo": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1000&q=80",
+    "title": "Мария Малявка",
+    "text": "Я классический свадебный и репортажный фотограф. Сохраняю самые важные и искренние моменты вашей жизни: от нежных свадебных церемоний и душевных таинств крещения до стильных индивидуальных портретов.\n\nМой главный ориентир — естественность, эмоции и чистота кадра, которые останутся актуальными спустя десятилетия.",
+    "facts": [
+      {
+        "label": "Локация",
+        "value": "Речица / Беларусь"
+      },
+      {
+        "label": "Специализация",
+        "value": "Свадьбы & Крещения"
+      },
+      {
+        "label": "Контент",
+        "value": "Фото & Reels"
+      }
+    ]
+  },
+  "services": [
+    {
+      "title": "Свадебная съемка",
+      "description": "От росписи и прогулки до полного дня торжества.",
+      "bullets": [
+        "Консультация и тайминг дня",
+        "Авторская обработка и ретушь",
+        "Готовый анонс первых фото"
+      ],
+      "price": "По запросу"
+    },
+    {
+      "title": "Таинство Крещения",
+      "description": "Нежная и уважительная репортажная съемка в храме.",
+      "bullets": [
+        "Съемка таинства и семейный портрет",
+        "Детальная обработка всех кадров",
+        "Закрытая онлайн-галерея"
+      ],
+      "price": "По запросу"
+    },
+    {
+      "title": "Портреты & Reels",
+      "description": "Персональные портретные съемки и создание эстетичных Reels.",
+      "bullets": [
+        "Помощь с локацией и образами",
+        "Обработанные фото + короткие видео",
+        "Готовность до 14 дней"
+      ],
+      "price": "По запросу"
+    }
+  ],
+  "contacts": {
+    "telegram_username": "",
+    "whatsapp_phone": "",
+    "viber_phone": "",
+    "message_template": "Здравствуйте! Меня зовут {name}. Хочу заказать съёмку: {type}.\nПожелания: {wishes}",
+    "footer_text": "© 2026 MARYIA MALYAVKA. Все права защищены."
+  }
+}
