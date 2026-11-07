@@ -49,9 +49,9 @@
     "book_button": "Забронировать дату"
   },
   "featured": [
-    "/images/uploads/IMG_0065.JPG",
-    "/images/uploads/photo_8_2026-11-02_23-57-34.jpg",
-    "/images/uploads/photo_51_2026-11-07_13-13-12.jpg"
+    "/images/uploads/IMG_0076.JPG",
+    "/images/uploads/IMG_0110.JPG",
+    "/images/uploads/photo_21_2026-11-07_13-14-37.jpg"
   ],
   "instagram": {
     "username": "maryia.pro.photo",
@@ -97,7 +97,19 @@
         "/images/uploads/photo_18_2026-11-02_23-57-34.jpg",
         "/images/uploads/photo_61_2026-11-07_13-13-12.jpg",
         "/images/uploads/photo_9_2026-11-07_13-13-12.jpg",
-        "/images/uploads/photo_13_2026-11-02_23-57-34.jpg"
+        "/images/uploads/photo_19_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_22_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_13_2026-11-02_23-57-34.jpg",
+        "/images/uploads/photo_4_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_15_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_34_2026-11-07_13-14-37.jpg",
+        "/images/uploads/photo_59_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_3_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_10_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_56_2026-11-07_13-14-37.jpg",
+        "/images/uploads/photo_28_2026-11-07_13-14-37.jpg",
+        "/images/uploads/photo_35_2026-11-07_13-14-37.jpg",
+        "/images/uploads/photo_36_2026-11-07_13-14-37.jpg"
       ]
     },
     {
@@ -113,8 +125,12 @@
         "/images/uploads/photo_3_2026-11-07_13-14-37.jpg",
         "/images/uploads/photo_4_2026-11-07_13-14-37.jpg",
         "/images/uploads/photo_7_2026-11-07_13-14-37.jpg",
+        "/images/uploads/photo_10_2026-11-07_13-14-37.jpg",
         "/images/uploads/photo_9_2026-11-07_13-14-37.jpg",
-        "/images/uploads/photo_6_2026-11-07_13-14-37.jpg"
+        "/images/uploads/photo_6_2026-11-07_13-14-37.jpg",
+        "/images/uploads/photo_15_2026-11-07_13-14-37.jpg",
+        "/images/uploads/32.jpg",
+        "/images/uploads/photo_11_2026-11-07_13-14-37.jpg"
       ]
     },
     {
@@ -122,17 +138,50 @@
       "title": "Индивидуальные фотосессии",
       "desc": "время для себя, своей красоты и внутреннего света",
       "category": "portrait",
-      "photos": []
+      "photos": [
+        "/images/uploads/photo_19_2026-11-07_13-14-37.jpg",
+        "/images/uploads/photo_20_2026-11-07_13-14-37.jpg",
+        "/images/uploads/photo_16_2026-11-07_13-14-37.jpg",
+        "/images/uploads/photo_23_2026-11-07_13-14-37.jpg",
+        "/images/uploads/photo_24_2026-11-07_13-14-37.jpg",
+        "/images/uploads/photo_22_2026-11-07_13-14-37.jpg",
+        "/images/uploads/photo_17_2026-11-07_13-14-37.jpg",
+        "/images/uploads/photo_18_2026-11-07_13-14-37.jpg",
+        "/images/uploads/photo_1_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_17_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_16_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_65_2026-11-07_13-14-37.jpg",
+        "/images/uploads/photo_18_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_37_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_50_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_49_2026-11-07_13-13-12.jpg"
+      ]
     },
     {
       "image": "/images/uploads/photo_5_2026-11-02_23-57-34.jpg",
       "title": "Семейные фотосессии",
       "desc": "тепло, смех и моменты, которые делают вас семьёй",
       "category": "reels",
-      "photos": []
+      "photos": [
+        "/images/uploads/IMG_0069.JPG",
+        "/images/uploads/IMG_0076.JPG",
+        "/images/uploads/IMG_0070.JPG",
+        "/images/uploads/IMG_0082.JPG",
+        "/images/uploads/IMG_0071.JPG",
+        "/images/uploads/IMG_0079.JPG",
+        "/images/uploads/IMG_0047.JPG",
+        "/images/uploads/photo_46_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_45_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_44_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_33_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_32_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_31_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_64_2026-11-07_13-14-37.jpg",
+        "/images/uploads/photo_59_2026-11-07_13-14-37.jpg"
+      ]
     },
     {
-      "image": "/images/uploads/photo_11_2026-11-02_23-57-34.jpg",
+      "image": "/images/uploads/photo_8_2026-11-07_13-13-12.jpg",
       "title": "Репортажная съемка",
       "desc": "дни рождения, открытия, корпоративы, праздники и концерты",
       "category": "reels",
@@ -141,11 +190,17 @@
         "/images/uploads/photo_7_2026-11-07_13-13-12.jpg",
         "/images/uploads/photo_12_2026-11-07_13-13-12.jpg",
         "/images/uploads/photo_57_2026-11-07_13-13-12.jpg",
-        "/images/uploads/photo_14_2026-11-07_13-13-12.jpg",
         "/images/uploads/photo_47_2026-11-07_13-13-12.jpg",
-        "/images/uploads/photo_63_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_14_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_42_2026-11-07_13-13-12.jpg",
         "/images/uploads/photo_56_2026-11-07_13-13-12.jpg",
-        "/images/uploads/photo_54_2026-11-07_13-13-12.jpg"
+        "/images/uploads/photo_53_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_54_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_6_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_13_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_63_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_40_2026-11-07_13-13-12.jpg",
+        "/images/uploads/photo_48_2026-11-07_13-13-12.jpg"
       ]
     }
   ],
