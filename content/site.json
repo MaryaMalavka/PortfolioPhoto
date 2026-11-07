@@ -236,11 +236,30 @@
       "price": "По запросу"
     }
   ],
-  "reviews": [],
+  "reviews": [
+    "/images/uploads/photo_46_2026-11-07_13-14-37.jpg",
+    "/images/uploads/photo_44_2026-11-07_13-14-37.jpg",
+    "/images/uploads/photo_49_2026-11-07_13-14-37.jpg",
+    "/images/uploads/photo_52_2026-11-07_13-14-37.jpg",
+    "/images/uploads/photo_51_2026-11-07_13-14-37.jpg",
+    "/images/uploads/photo_47_2026-11-07_13-14-37.jpg",
+    "/images/uploads/photo_27_2026-11-07_13-14-37.jpg",
+    "/images/uploads/photo_31_2026-11-07_13-14-37.jpg",
+    "/images/uploads/photo_30_2026-11-07_13-14-37.jpg",
+    "/images/uploads/photo_33_2026-11-07_13-14-37.jpg",
+    "/images/uploads/photo_41_2026-11-07_13-14-37.jpg",
+    "/images/uploads/photo_39_2026-11-07_13-14-37.jpg",
+    "/images/uploads/photo_38_2026-11-07_13-14-37.jpg",
+    "/images/uploads/photo_40_2026-11-07_13-14-37.jpg",
+    "/images/uploads/photo_50_2026-11-07_13-14-37.jpg",
+    "/images/uploads/photo_42_2026-11-07_13-14-37.jpg",
+    "/images/uploads/photo_37_2026-11-07_13-14-37.jpg"
+  ],
   "cta": {
     "title": "Давайте создадим ваши кадры",
     "text": "Расскажите о вашем событии, и я свяжусь с вами в течение рабочего дня.",
     "button": "Забронировать дату",
+    "background": "/images/uploads/photo_60_2026-11-07_13-14-37.jpg",
     "overlay": 60
   },
   "contacts": {
