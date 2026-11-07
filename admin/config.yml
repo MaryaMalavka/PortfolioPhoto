@@ -1,126 +1,172 @@
-# ВАЖНО: замените YOUR_USERNAME/YOUR_REPO на свой логин и название репозитория,
-# например: maryia/portfolio
+# ============================================================
+# ВАЖНО: замените YOUR_USERNAME/YOUR_REPO на свой логин и название
+# репозитория, например: maryia/portfolio  (только эту строку repo:)
+# ============================================================
 backend:
   name: github
   repo: MaryaMalavka/PortfolioPhoto
   branch: main
 
-# Фото, загруженные через админку, попадут в images/uploads
 media_folder: images/uploads
 public_folder: images/uploads
 
-
 collections:
   - name: pages
-    label: Сайт
+    label: "Сайт"
     files:
       - name: site
-        label: Все содержимое сайта
+        label: "Все содержимое сайта"
         file: content/site.json
         format: json
         fields:
-          - label: Основное
+          - label: "Порядок и показ блоков"
+            name: sections
+            widget: list
+            required: false
+            hint: "Перетаскивайте блоки, чтобы поменять порядок на сайте. Чтобы скрыть блок, выберите «Скрыть»."
+            summary: "{{fields.type}} — {{fields.show}}"
+            fields:
+              - { label: "Блок", name: type, widget: select, options: ["Главный экран", "Фото-ряд", "Instagram", "Галерея", "Обо мне", "Услуги", "Отзывы", "Призыв к действию"] }
+              - { label: "Показ", name: show, widget: select, options: ["Показывать", "Скрыть"], default: "Показывать" }
+          - label: "Основное"
             name: meta
             widget: object
+            required: false
             fields:
-              - { label: Заголовок вкладки браузера, name: title, widget: string }
-              - { label: Название в шапке, name: brand, widget: string }
-              - { label: Подпись под названием, name: brand_sub, widget: string }
-
-          - label: Главный экран
+              - { label: "Заголовок вкладки браузера", name: title, widget: string, required: false }
+              - { label: "Название в шапке", name: brand, widget: string, required: false }
+              - { label: "Подпись под названием", name: brand_sub, widget: string, required: false }
+          - label: "Главный экран"
             name: hero
             widget: object
+            required: false
             fields:
-              - { label: Показывать плашку "Доступны даты", name: show_badge, widget: boolean, default: true }
-              - { label: Текст плашки, name: badge, widget: string }
-              - { label: Имя, name: first_name, widget: string }
-              - { label: Фамилия, name: last_name, widget: string }
-              - { label: Подзаголовок, name: subtitle, widget: string }
-              - { label: Описание, name: description, widget: text }
-              - { label: Локация, name: location, widget: string }
-              - { label: Текст кнопки бронирования, name: book_button, widget: string }
-
-          - label: Три больших фото на главном экране
+              - { label: "Показывать плашку «Доступны даты»", name: show_badge, widget: boolean, required: false, default: true }
+              - { label: "Текст плашки", name: badge, widget: string, required: false }
+              - { label: "Имя", name: first_name, widget: string, required: false }
+              - { label: "Фамилия", name: last_name, widget: string, required: false }
+              - { label: "Подзаголовок", name: subtitle, widget: string, required: false }
+              - { label: "Описание", name: description, widget: text, required: false }
+              - { label: "Локация", name: location, widget: string, required: false }
+              - { label: "Текст кнопки бронирования", name: book_button, widget: string, required: false }
+          - label: "Фото-ряд (3 фото под главным экраном)"
             name: featured
             widget: list
-            min: 1
+            required: false
+            hint: "Просто три фотографии, без подписей и без ссылок."
             max: 3
-            summary: "{{fields.title}}"
-            fields:
-              - { label: Фото, name: image, widget: image }
-              - { label: "Подпись сверху (например Свадьба)", name: label, widget: string }
-              - { label: Название, name: title, widget: string }
-              - label: "Фото для карусели (до 9 дополнительных, обложка уже первая)"
-                name: photos
-                widget: list
-                required: false
-                max: 9
-                field: { label: Фото, name: photo, widget: image }
-
-          - label: Instagram
+            field: { label: "Фото", name: image, widget: image }
+          - label: "Instagram"
             name: instagram
             widget: object
+            required: false
             fields:
-              - { label: Имя пользователя (без @), name: username, widget: string }
-              - { label: Аватар, name: avatar, widget: image }
-              - { label: Описание профиля, name: bio, widget: text }
-              - { label: Текст кнопки, name: button, widget: string }
-              - { label: Текст кнопки в конце карусели, name: more_button, widget: string, required: false }
-
-          - label: Галерея (портфолио)
+              - { label: "Имя пользователя (без @)", name: username, widget: string, required: false }
+              - { label: "Аватар", name: avatar, widget: image, required: false }
+              - { label: "Описание профиля", name: bio, widget: text, required: false }
+              - { label: "Текст кнопки", name: button, widget: string, required: false }
+              - { label: "Текст кнопки в конце карусели фото", name: more_button, widget: string, required: false }
+          - label: "Категории галереи"
+            name: categories
+            widget: list
+            required: false
+            hint: "Здесь можно добавлять, переименовывать и удалять категории. После изменений нажмите Save, и они появятся в списке «Категория» у фото."
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Название", name: label, widget: string }
+              - { label: "Служебный код (не меняется)", name: id, widget: uuid, required: false }
+          - label: "Галерея (портфолио)"
             name: gallery
             widget: list
-            summary: "{{fields.title}} — {{fields.category}}"
+            required: false
+            summary: "{{fields.title}}"
             fields:
-              - { label: Фото, name: image, widget: image }
-              - { label: Название, name: title, widget: string }
-              - { label: Описание (видно при открытии фото), name: desc, widget: string, required: false }
-              - label: "Фото для карусели (до 9 дополнительных, обложка уже первая)"
+              - { label: "Фото (обложка карточки)", name: image, widget: image }
+              - { label: "Название", name: title, widget: string, required: false }
+              - { label: "Описание (видно при открытии фото)", name: desc, widget: string, required: false }
+              - label: "Категория"
+                name: category
+                widget: relation
+                required: false
+                collection: pages
+                file: site
+                search_fields: ["categories.*.label"]
+                value_field: "categories.*.id"
+                display_fields: ["categories.*.label"]
+              - label: "Фото для карусели (до 9, обложка уже первая)"
                 name: photos
                 widget: list
                 required: false
                 max: 9
-                field: { label: Фото, name: photo, widget: image }
-              - label: Категория
-                name: category
-                widget: select
-                options:
-                  - { label: Свадьба, value: wedding }
-                  - { label: Крещение, value: baptism }
-                  - { label: Портрет, value: portrait }
-                  - { label: Reels и репортаж, value: reels }
-
-          - label: Обо мне
+                field: { label: "Фото", name: photo, widget: image }
+          - label: "Обо мне"
             name: about
             widget: object
+            required: false
             fields:
-              - { label: Фото, name: photo, widget: image }
-              - { label: Заголовок, name: title, widget: string }
-              - { label: Текст (абзацы разделяйте пустой строкой), name: text, widget: text }
-              - label: Факты (3 блока под текстом)
+              - { label: "Фото", name: photo, widget: image, required: false }
+              - { label: "Заголовок", name: title, widget: string, required: false }
+              - { label: "Текст (абзацы разделяйте пустой строкой)", name: text, widget: text, required: false }
+              - label: "Факты (блоки под текстом)"
                 name: facts
                 widget: list
+                required: false
                 summary: "{{fields.label}}: {{fields.value}}"
                 fields:
-                  - { label: Название, name: label, widget: string }
-                  - { label: Значение, name: value, widget: string }
-
-          - label: Услуги
+                  - { label: "Название", name: label, widget: string, required: false }
+                  - { label: "Значение", name: value, widget: string, required: false }
+          - label: "Услуги"
             name: services
             widget: list
+            required: false
             summary: "{{fields.title}}"
             fields:
-              - { label: Название, name: title, widget: string }
-              - { label: Короткое описание, name: description, widget: string }
-              - { label: Что входит (по одному пункту), name: bullets, widget: list, field: { label: Пункт, name: item, widget: string } }
-              - { label: Цена, name: price, widget: string }
-
-          - label: Контакты и кнопка "Забронировать"
+              - { label: "Название", name: title, widget: string, required: false }
+              - { label: "Короткое описание", name: description, widget: string, required: false }
+              - label: "Что входит (по одному пункту)"
+                name: bullets
+                widget: list
+                required: false
+                field: { label: "Пункт", name: item, widget: string, required: false }
+              - { label: "Цена", name: price, widget: string, required: false }
+          - label: "Отзывы"
+            name: reviews
+            widget: list
+            required: false
+            hint: "Карусель с отзывами в виде облачков. Пока отзывов нет, блок на сайте не показывается."
+            summary: "{{fields.nick}}"
+            fields:
+              - { label: "Ник (например @anna)", name: nick, widget: string, required: false }
+              - { label: "Текст отзыва", name: text, widget: text, required: false }
+          - label: "Призыв к действию (в конце сайта)"
+            name: cta
+            widget: object
+            required: false
+            fields:
+              - { label: "Заголовок", name: title, widget: string, required: false }
+              - { label: "Текст", name: text, widget: text, required: false }
+              - { label: "Текст кнопки", name: button, widget: string, required: false }
+          - label: "Контакты и кнопка «Забронировать»"
             name: contacts
             widget: object
+            required: false
+            hint: "Эти контакты используются в окне «Связаться со мной» и в футере сайта."
             fields:
-              - { label: Telegram (логин без @), name: telegram_username, widget: string, required: false }
-              - { label: WhatsApp (номер с кодом страны, например 375291234567), name: whatsapp_phone, widget: string, required: false }
-              - { label: Viber (номер с кодом страны, например 375291234567), name: viber_phone, widget: string, required: false }
-              - { label: "Шаблон сообщения (используйте {name}, {type}, {wishes})", name: message_template, widget: text }
-              - { label: Текст в подвале, name: footer_text, widget: string }
+              - { label: "Telegram (логин без @)", name: telegram_username, widget: string, required: false }
+              - { label: "WhatsApp (номер с кодом страны, например 375291234567)", name: whatsapp_phone, widget: string, required: false }
+              - { label: "Viber (номер с кодом страны, например 375291234567)", name: viber_phone, widget: string, required: false }
+              - { label: "Шаблон сообщения (подстановки: {name}, {type}, {wishes})", name: message_template, widget: text, required: false }
+              - { label: "Текст в подвале", name: footer_text, widget: string, required: false }
+          - label: "Заголовки блоков"
+            name: headings
+            widget: object
+            required: false
+            fields:
+              - { label: "Галерея: надпись над заголовком", name: gallery_eyebrow, widget: string, required: false }
+              - { label: "Галерея: заголовок", name: gallery_title, widget: string, required: false }
+              - { label: "Галерея: кнопка «Все»", name: gallery_all, widget: string, required: false }
+              - { label: "Обо мне: надпись над заголовком", name: about_eyebrow, widget: string, required: false }
+              - { label: "Услуги: надпись над заголовком", name: services_eyebrow, widget: string, required: false }
+              - { label: "Услуги: заголовок", name: services_title, widget: string, required: false }
+              - { label: "Отзывы: надпись над заголовком", name: reviews_eyebrow, widget: string, required: false }
+              - { label: "Отзывы: заголовок", name: reviews_title, widget: string, required: false }
