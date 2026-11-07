@@ -62,20 +62,24 @@
   },
   "categories": [
     {
-      "id": "wedding",
-      "label": "Свадьбы"
+      "label": "Свадьбы",
+      "id": "wedding"
     },
     {
-      "id": "baptism",
-      "label": "Крещения"
+      "label": "Крещения",
+      "id": "baptism"
     },
     {
-      "id": "portrait",
-      "label": "Портреты"
+      "label": "Портреты",
+      "id": "portrait"
     },
     {
-      "id": "reels",
-      "label": "Reels и репортаж"
+      "label": "Репортаж",
+      "id": "reels"
+    },
+    {
+      "label": "Другое",
+      "id": "50b8e622-b306-4bb2-ad41-57b1184477ed"
     }
   ],
   "gallery": [
@@ -83,6 +87,7 @@
       "image": "/images/uploads/photo_1_2026-11-02_23-57-34.jpg",
       "title": "Свадебные фотографии",
       "desc": "Эмоции, взгляды и моменты, которые останутся с вами навсегда",
+      "category": "wedding",
       "photos": [
         "/images/uploads/photo_10_2026-11-02_23-57-34.jpg",
         "/images/uploads/photo_12_2026-11-02_23-57-34.jpg",
@@ -93,36 +98,35 @@
         "/images/uploads/photo_14_2026-11-02_23-57-34.jpg",
         "/images/uploads/photo_16_2026-11-02_23-57-34.jpg",
         "/images/uploads/photo_13_2026-11-02_23-57-34.jpg"
-      ],
-      "category": "wedding"
+      ]
     },
     {
       "image": "/images/uploads/photo_8_2026-11-02_23-57-34.jpg",
       "title": "Таинство Крещения",
       "desc": "Душевный репортаж из храма",
-      "photos": [],
-      "category": "baptism"
+      "category": "baptism",
+      "photos": []
     },
     {
       "image": "/images/uploads/photo_6_2026-11-02_23-57-34.jpg",
       "title": "Индивидуальные фотосессии",
       "desc": "время для себя, своей красоты и внутреннего света",
-      "photos": [],
-      "category": "portrait"
+      "category": "portrait",
+      "photos": []
     },
     {
       "image": "/images/uploads/photo_5_2026-11-02_23-57-34.jpg",
       "title": "Семейные фотосессии",
       "desc": "тепло, смех и моменты, которые делают вас семьёй",
-      "photos": [],
-      "category": "reels"
+      "category": "reels",
+      "photos": []
     },
     {
       "image": "/images/uploads/photo_11_2026-11-02_23-57-34.jpg",
       "title": "Репортажная съемка",
       "desc": "дни рождения, открытия, корпоративы, праздники и концерты",
-      "photos": [],
-      "category": "reels"
+      "category": "reels",
+      "photos": []
     }
   ],
   "about": {
