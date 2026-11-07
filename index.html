@@ -103,6 +103,7 @@
                         </div>
                         <div>
                             <h4 class="font-syne font-bold text-lg flex items-center gap-2">
+                                <i data-lucide="instagram" class="w-5 h-5"></i>
                                 <span data-insta-handle></span>
                                 <i data-lucide="badge-check" class="w-4 h-4 text-blue-400"></i>
                             </h4>
@@ -172,10 +173,15 @@
         </section>
 
         <!-- CTA -->
-        <section id="sec-cta" class="py-28 border-t editorial-border">
-            <div class="max-w-4xl mx-auto px-6 text-center">
+        <section id="sec-cta" class="relative overflow-hidden py-28 border-t editorial-border">
+            <!-- Фоновое фото + затемнение (настраиваются в админке) -->
+            <div id="cta-bg" class="absolute inset-0 hidden" aria-hidden="true">
+                <img id="cta-img" alt="" class="w-full h-full object-cover">
+                <div id="cta-shade" class="absolute inset-0"></div>
+            </div>
+            <div class="relative max-w-4xl mx-auto px-6 text-center">
                 <h2 class="font-syne text-4xl sm:text-6xl font-extrabold uppercase leading-[0.98] tracking-tight" data-t="cta.title"></h2>
-                <p class="mt-6 text-neutral-400 text-sm sm:text-base font-light leading-relaxed max-w-xl mx-auto whitespace-pre-line" data-t="cta.text"></p>
+                <p id="cta-text" class="mt-6 text-neutral-400 text-sm sm:text-base font-light leading-relaxed max-w-xl mx-auto whitespace-pre-line" data-t="cta.text"></p>
                 <button type="button" onclick="toggleContactModal()" class="mt-10 inline-flex items-center justify-center px-10 py-4 text-xs font-bold uppercase tracking-widest text-studio-950 bg-white rounded-full hover:bg-neutral-200 transition">
                     <span data-t="cta.button" data-d="Забронировать дату"></span>
                 </button>
@@ -304,7 +310,7 @@
             $('hero-badge').style.display = (SITE.hero.show_badge === false || !SITE.hero.badge) ? 'none' : '';
 
             renderFeatured(); renderFilters(); renderGallery(); renderAbout(); renderServices();
-            const reviewsCount = renderReviews(); renderContact(); renderFooter();
+            const reviewsCount = renderReviews(); renderCta(); renderContact(); renderFooter();
             lucide.createIcons();
             applySections(reviewsCount);
             requestAnimationFrame(updateReviewControls);
@@ -420,21 +426,38 @@
         }
 
         // ---------- Отзывы ----------
+        // Фото-отзывы: у каждого своя ширина (по пропорциям фото), высота одинаковая
+        function reviewUrls() {
+            return SITE.reviews.map(r => typeof r === 'string' ? r : (r && r.image)).filter(Boolean).slice(0, 25);
+        }
         function renderReviews() {
-            const items = SITE.reviews.filter(r => r && (r.text || r.nick));
+            const urls = reviewUrls();
             const track = $('rv-track'); track.replaceChildren();
-            items.forEach(r => {
-                const col = el('div', 'snap-start shrink-0 w-[85%] sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)]');
-                const bubble = el('div', 'h-full bg-studio-900 border editorial-border rounded-3xl rounded-bl-md p-6 flex flex-col gap-3');
-                if (r.nick) {
-                    let n = String(r.nick).trim();
-                    if (!n.startsWith('@') && !/\s/.test(n)) n = '@' + n;
-                    bubble.append(el('p', 'font-syne font-bold text-sm tracking-wide', n));
-                }
-                if (r.text) bubble.append(el('p', 'text-sm text-neutral-300 leading-relaxed whitespace-pre-line', r.text));
-                col.append(bubble); track.append(col);
+            urls.forEach((u, i) => {
+                const card = el('button', 'snap-start shrink-0 block h-52 sm:h-72 lg:h-[26rem] rounded-xl overflow-hidden border editorial-border bg-studio-900 cursor-zoom-in');
+                card.type = 'button'; card.setAttribute('aria-label', 'Открыть отзыв ' + (i + 1));
+                card.onclick = () => openViewer({ photos: urls, start: i, title: SITE.headings.reviews_title || '', tall: true });
+                const im = el('img', 'block h-full w-auto max-w-none');
+                im.src = img(u); im.alt = 'Отзыв ' + (i + 1); im.loading = 'lazy'; im.draggable = false;
+                im.style.aspectRatio = 'auto 9 / 16'; // пока фото грузится, занимает место вертикальной карточки
+                im.addEventListener('load', updateReviewControls);
+                card.append(im); track.append(card);
             });
-            return items.length;
+            return urls.length;
+        }
+
+        // ---------- CTA: фон и затемнение ----------
+        function renderCta() {
+            const c = SITE.cta, bg = img(c.background), wrap = $('cta-bg');
+            wrap.classList.toggle('hidden', !bg);
+            if (!bg) return;
+            $('cta-img').src = bg;
+            const raw = c.overlay;
+            let o = (raw === undefined || raw === null || raw === '') ? 60 : Number(raw);
+            if (!isFinite(o)) o = 60;
+            o = Math.max(0, Math.min(100, o));
+            $('cta-shade').style.background = 'rgba(5,5,5,' + (o / 100) + ')';
+            const p = $('cta-text'); p.classList.remove('text-neutral-400'); p.classList.add('text-neutral-200');
         }
         function updateReviewControls() {
             const t = $('rv-track');
@@ -467,14 +490,19 @@
 
         // ---------- Карусель фото ----------
         let lbSlides = 0, lbIndex = 0;
+        // Карточка галереи: обложка + любое количество доп. фото + последний слайд со ссылкой на Instagram
         function openLightbox(item) {
-            const photos = [item.image, ...((item.photos || []).filter(Boolean))].filter(Boolean).slice(0, 10);
-            const igUser = String(SITE.instagram.username || '').replace('@', '').trim();
+            openViewer({ photos: [item.image, ...(item.photos || [])], title: item.title || '', desc: item.desc || '', instagram: true });
+        }
+        // Универсальный просмотр: o = { photos, start, title, desc, instagram, tall }
+        function openViewer(o) {
+            const photos = (o.photos || []).filter(Boolean);
+            const igUser = o.instagram ? String(SITE.instagram.username || '').replace('@', '').trim() : '';
             const track = $('lb-track'); track.replaceChildren();
             photos.forEach((u, i) => {
                 const s = el('div', 'shrink-0 w-full flex items-center justify-center px-4 sm:px-16');
-                const im = el('img', 'max-h-[70vh] w-auto max-w-full object-contain rounded-sm shadow-2xl');
-                im.src = img(u); im.alt = (item.title || '') + ' ' + (i + 1); im.draggable = false;
+                const im = el('img', (o.tall ? 'max-h-[78vh]' : 'max-h-[70vh]') + ' w-auto max-w-full object-contain rounded-sm shadow-2xl');
+                im.src = img(u); im.alt = (o.title || '') + ' ' + (i + 1); im.draggable = false; im.loading = 'lazy';
                 s.append(im); track.append(s);
             });
             if (igUser) { // последний слайд: ссылка на Instagram
@@ -484,20 +512,24 @@
                 a.href = 'https://www.instagram.com/' + igUser; a.target = '_blank'; a.rel = 'noopener';
                 a.className = 'bg-white text-black text-xs font-bold px-8 py-4 rounded-full uppercase tracking-wider hover:bg-neutral-200 transition flex items-center gap-2';
                 a.append(icon('instagram', 'w-4 h-4'), el('span', null, SITE.instagram.more_button || 'Больше фото в Instagram'));
-                box.append(el('p', 'font-syne text-2xl sm:text-3xl font-bold uppercase', '@' + igUser), a);
+                const nick = el('p', 'font-syne text-2xl sm:text-3xl font-bold uppercase flex items-center justify-center gap-3');
+                nick.append(icon('instagram', 'w-7 h-7 shrink-0'), el('span', null, '@' + igUser));
+                box.append(nick, a);
                 cta.append(box); track.append(cta);
             }
             lbSlides = track.children.length; lbIndex = 0;
             const dots = $('lb-dots'); dots.replaceChildren();
-            for (let i = 0; i < lbSlides; i++) {
-                const d = el('button', 'w-1.5 h-1.5 rounded-full bg-neutral-600 transition'); d.setAttribute('aria-label', 'Слайд ' + (i + 1));
-                d.onclick = () => lbShow(i); dots.append(d);
+            if (lbSlides <= 14) { // при большом количестве фото точки не нужны — есть счётчик
+                for (let i = 0; i < lbSlides; i++) {
+                    const d = el('button', 'w-1.5 h-1.5 rounded-full bg-neutral-600 transition'); d.setAttribute('aria-label', 'Слайд ' + (i + 1));
+                    d.onclick = () => lbShow(i); dots.append(d);
+                }
             }
-            $('lightbox-title').textContent = item.title || '';
-            $('lightbox-desc').textContent = item.desc || '';
+            $('lightbox-title').textContent = o.title || '';
+            $('lightbox-desc').textContent = o.desc || '';
             const m = $('lightbox-modal'); m.classList.remove('hidden'); m.classList.add('flex');
             document.body.style.overflow = 'hidden';
-            lucide.createIcons(); lbShow(0);
+            lucide.createIcons(); lbShow(o.start || 0);
         }
         function lbShow(i) {
             lbIndex = Math.max(0, Math.min(lbSlides - 1, i));
